@@ -13,7 +13,7 @@ pipeline {
       stage("Build image") {
             steps {
                 script {
-                    python_hw = docker.build("zoglo/python_hw:${env.BUILD_ID}", "-f docker_image/")
+                    python_hw = docker.build("zoglo/python_hw:${env.BUILD_ID}", "-f docker_image/ .")
                 }
             }
         }
