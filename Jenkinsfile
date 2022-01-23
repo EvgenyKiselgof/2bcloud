@@ -43,7 +43,7 @@ pipeline {
       steps {
         sh '''
         minikube tunnel > /dev/null &
-        /home/evgeny/ngrok http 10.102.167.217:8081 --log=stdout > ngrok.log &
+        /home/evgeny/ngrok http 10.102.167.217:8081 --log=stdout > /home/evgeny/ngrok.log &
         '''
       }
     }
