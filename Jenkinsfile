@@ -55,7 +55,7 @@ pipeline {
     }
         stage('Get External URL') {
       steps {
-        sh ''' curl $(sed -ne 's/.*\\(http:[^"]*\\).*/\\1/p' < /home/evgeny/ngrok.log | awk 'NR == 1') '''
+        sh ''' sed -ne 's/.*\\(http:[^"]*\\).*/\\1/p' < /home/evgeny/ngrok.log | awk 'NR == 1' '''
             }
     }
   }
