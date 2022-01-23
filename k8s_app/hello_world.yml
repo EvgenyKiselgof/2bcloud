@@ -19,7 +19,7 @@ spec:
         image: zoglo/python_hw:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8081
+        - containerPort: 80
 
 ---
 apiVersion: v1
