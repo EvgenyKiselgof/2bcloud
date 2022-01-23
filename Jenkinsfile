@@ -37,6 +37,16 @@ pipeline {
         }
       }
     }
+    
+    
+    stage('Start Tunnel and Ngrok') {
+      steps {
+        sh '''
+        minikube tunnel > /dev/null &
+        /home/evgeny/ngrok http 10.102.167.217:8081 --log=stdout > ngrok.log &
+
+      }
+    }
 
   }
 
