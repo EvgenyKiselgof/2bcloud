@@ -50,7 +50,7 @@ pipeline {
 
     stage('Validate response') {
       steps {
-        sh ''' curl $(sed -ne 's/.*\\(http:[^"]*\\).*/\\1/p') '''
+        sh ''' curl $(sed -ne 's/.*\\(http:[^"]*\\).*/\\1/p' < /home/evgeny/ngrok.log) '''
             }
     }
   }
