@@ -44,10 +44,15 @@ pipeline {
         sh '''
         minikube tunnel > /dev/null &
         /home/evgeny/ngrok http 10.102.167.217:8081 --log=stdout > ngrok.log &
-
+        '''
       }
     }
 
+    stage('Validate response') {
+      steps {
+        sh '''curl $(sed -ne 's/.*\(http:[^"]*\).*/\1/p')'''
+            }
+    }
   }
 
 }
