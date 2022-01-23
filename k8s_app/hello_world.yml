@@ -31,9 +31,7 @@ metadata:
 spec:
   selector:
     app: hello-world
-  type: LoadBalancer
-  externalIPs:
-  - 10.102.167.217
+  type: NodePort
   ports:
   - nodePort: 30111
     port: 8081
