@@ -38,24 +38,14 @@ pipeline {
       }
     }
     
-    
-    stage('Start Tunnel and Ngrok') {
-      steps {
-        sh '''
-        minikube tunnel > /dev/null &
-        /home/evgeny/ngrok http 10.102.167.217:8081 --log=stdout > /home/evgeny/ngrok.log &
-        '''
-      }
-    }
+   
 
     stage('Validate response from App by ClusterIP') {
       steps {
-        sh ''' curl 10.102.167.217:8081 '''
-            }
-    }
-        stage('Get External URL') {
-      steps {
-        sh ''' sed -ne 's/.*\\(http:[^"]*\\).*/\\1/p' < /home/evgeny/ngrok.log | awk 'NR == 1' '''
+        sh ''' 
+        curl localhost:8081
+        curl localhost:30111
+        '''
             }
     }
   }
