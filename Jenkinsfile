@@ -48,7 +48,12 @@ pipeline {
       }
     }
 
-    stage('Validate response') {
+    stage('Validate response from App by ClusterIP') {
+      steps {
+        sh ''' curl 10.102.167.217:8081 '''
+            }
+    }
+        stage('Get External URL') {
       steps {
         sh ''' curl $(sed -ne 's/.*\\(http:[^"]*\\).*/\\1/p' < /home/evgeny/ngrok.log | awk 'NR == 1') '''
             }
