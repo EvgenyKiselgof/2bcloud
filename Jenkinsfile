@@ -40,14 +40,14 @@ pipeline {
     
    
 
-    stage('Validate response from App by ClusterIP') {
-      steps {
-        sh ''' 
-        curl localhost:8081
-        curl localhost:30111
-        '''
-            }
-    }
-  }
+  //   stage('Validate response from App by ClusterIP') {
+  //     steps {
+  //       sh ''' 
+  //       curl localhost:8081
+  //       curl localhost:30111
+  //       '''
+  //           }
+  //   }
+  // }
 
 }
